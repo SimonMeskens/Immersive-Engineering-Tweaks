@@ -17,14 +17,15 @@ import stanhebben.zenscript.annotations.ZenMethod;
 @ZenRegister
 public class MetalPress {
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, IItemStack mold, int energy, @Optional boolean useNBT, @Optional int inputSize) {
+    public static void addRecipe(String recipeName, IItemStack output, IIngredient input, IItemStack mold, int energy, @Optional boolean useNBT, @Optional int inputSize) {
         Object oInput = CraftTweakerHelper.toObject(input);
         if (oInput == null)
             return;
         ItemStack sOut = CraftTweakerHelper.toStack(output);
         ItemStack sMold = CraftTweakerHelper.toStack(mold);
+
         if (!sOut.isEmpty() && !sMold.isEmpty()) {
-            MetalPressRecipe r = new MetalPressRecipe(sOut, oInput, ApiUtils.createComparableItemStack(sMold, true, useNBT), energy);
+            MetalPressNBTRecipe r = new MetalPressNBTRecipe(recipeName, sOut, oInput, ApiUtils.createComparableItemStack(sMold, true, useNBT), energy);
             r.input.setUseNBT(useNBT);
             if (inputSize > 0)
                 r.setInputSize(inputSize);
@@ -33,9 +34,9 @@ public class MetalPress {
     }
 
     private static class Add implements IAction {
-        private final MetalPressRecipe recipe;
+        private final MetalPressNBTRecipe recipe;
 
-        public Add(MetalPressRecipe recipe) {
+        public Add(MetalPressNBTRecipe recipe) {
             this.recipe = recipe;
         }
 

@@ -1,6 +1,5 @@
 package simonmeskens.immersivetweaks;
 
-import blusunrize.immersiveengineering.api.ApiUtils;
 import blusunrize.immersiveengineering.api.crafting.ArcFurnaceRecipe;
 import blusunrize.immersiveengineering.api.crafting.BlastFurnaceRecipe;
 import crafttweaker.CraftTweakerAPI;
@@ -10,12 +9,10 @@ import crafttweaker.api.item.IIngredient;
 import crafttweaker.api.item.IItemStack;
 import crafttweaker.api.minecraft.CraftTweakerMC;
 import net.minecraft.item.ItemStack;
-import stanhebben.zenscript.annotations.Optional;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
 
 @ZenClass("mods.immersivetweaks.Slag")
 @ZenRegister

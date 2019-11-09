@@ -5,6 +5,7 @@ Small tweaks for Immersive Engineering
 // Add recipes with optional NBT-sensitivity
 // Works like IE addRecipe, but has extra boolean
 mods.immersivetweaks.MetalPress.addRecipe(
+    String recipeName,
     IItemStack output, 
     IIngredient input, 
     IItemStack mold, 
